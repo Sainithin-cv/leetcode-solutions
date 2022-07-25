@@ -1,0 +1,39 @@
+
+# First element to occur k times
+
+Given an array of N integers. Find the first element that occurs atleast K number of times.
+
+## Example 1:
+
+Input :
+N = 7, K = 2
+A[] = {1, 7, 4, 3, 4, 8, 7}
+Output :
+4
+Explanation:
+Both 7 and 4 occur 2 times. 
+But 4 is first that occurs 2 times.
+
+```java
+class Solution
+{
+    public int firstElementKTime(int[] a, int n, int k) { 
+        int[] temp = new int[n];
+        int count = 0;
+        for(int i=0; i<n; i++){
+            for(int j=i; j>=0; j--){
+                if(a[j]==a[i]){
+                    count++;
+                }
+                
+                if(count==k){
+                    return a[i];
+                }
+            }
+            count=0;
+        }
+        return -1;
+    } 
+}
+
+```
